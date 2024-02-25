@@ -176,5 +176,13 @@ export default class MainScene extends Phaser.Scene {
         if (this.cursors.up.isDown && this.player?.body?.touching.down) {
             this.player.setVelocityY(-330);
         }
+
+        //Added a small else if to make "dude" fast fall if you press the down arrow key
+        else if (
+            this.cursors.down.isDown &&
+            !this.player?.body?.touching.down
+        ) {
+            this.player?.setVelocityY(500);
+        }
     }
 }
